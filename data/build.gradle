@@ -1,0 +1,67 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            buildConfigField "String", "PRIVATE_API_KEY_VALUE", '"03d4cb2fd78d87f2ca966c895c421fa26a15585b"'
+            buildConfigField "String", "PUBLIC_API_KEY_VALUE", '"d8772473d44c69f796d993f36dc980ec"'
+            buildConfigField "String", "MARVEL_BASE_URL", '"http://gateway.marvel.com/public/"'
+
+        }
+
+        release {
+            minifyEnabled false
+            buildConfigField "String", "PRIVATE_API_KEY_VALUE", '"03d4cb2fd78d87f2ca966c895c421fa26a15585b"'
+            buildConfigField "String", "PUBLIC_API_KEY_VALUE", '"d8772473d44c69f796d993f36dc980ec"'
+            buildConfigField "String", "MARVEL_BASE_URL", '"http://gateway.marvel.com/public/"'
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':domain')
+
+    def generalDependencies = rootProject.ext.generalDependencies
+    def dataDependencies = rootProject.ext.dataDependencies
+    def generalTestDependencies = rootProject.ext.generalTestDependencies
+
+    implementation generalDependencies.rxAndroid,
+            generalDependencies.rxJava,
+            generalDependencies.appSupport,
+            generalDependencies.kotlin
+
+    testImplementation generalTestDependencies.junit,
+            generalTestDependencies.kotlinTest
+
+    implementation dataDependencies.retrofit,
+            dataDependencies.retrofitConverter,
+            dataDependencies.retrofitAdapterRX
+
+}
+
+android.testOptions.unitTests.all {
+    // Configure whether failing tests should fail the build
+    ignoreFailures false
+
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}

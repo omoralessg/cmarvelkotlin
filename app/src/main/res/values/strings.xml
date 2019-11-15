@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Clean_Marvel_Kotlin</string>
+    <string name="message_no_items_to_show">No items to show</string>
+    <string name="character_detail_description">Description</string>
+    <string name="imv_desc">hero</string>
+    <string name="character_detail_modified">Modified</string>
+    <string name="character_url">Url</string>
+    <string name="character_available_comics">Available Comics</string>
+</resources>
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/layout_margin"
+    android:background="@color/colorPrimary">
+
+
+    <TextView
+        android:layout_margin="8dp"
+        android:id="@+id/tv_character_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/StyleDialogTitles"/>
+
+    <ImageView
+        android:id="@+id/image_character_detail_thumbnail"
+        android:layout_width="150dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center"/>
+
+
+    <TextView
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/character_detail_description"
+        style="@style/StyleDialogTitles"/>
+
+    <TextView
+        android:id="@+id/tv_character_detail_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        style="@style/StyleDialogInfo"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/character_url"
+        android:layout_margin="8dp"
+        style="@style/StyleDialogTitles" />
+
+    <TextView
+        android:id="@+id/tv_character_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        style="@style/StyleDialogInfo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/character_available_comics"
+        style="@style/StyleDialogTitles"/>
+
+    <TextView
+        android:id="@+id/tv_character_available_comics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        style="@style/StyleDialogInfo"
+        android:layout_marginBottom="8dp"/>
+
+
+
+
+</LinearLayout>
+</ScrollView>
